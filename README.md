@@ -28,6 +28,12 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \tugmaks\RssFeed\RssReader::widget([
-'channel'=>'http://example.com/feed.xml'
-]); ?>```
+<?php echo \tugmaks\RssFeed\RssReader::widget([
+'channel'=>'http://example.com/feed.xml',
+ 'pageSize' = 5,
+ 'itemView' = 'item', //You can create your own view to show single item news. Use $model var to access item properties
+ 'wrapTag' = 'div',
+ 'wrapClass' = 'rss-wrap',
+]);
+ ?>
+```
