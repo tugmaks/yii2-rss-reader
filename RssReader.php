@@ -12,9 +12,10 @@ class RssReader extends \yii\base\Widget {
     public $channel;
     public $pageSize = 10;
     public $itemView = 'item';
-    public $wrapTag = 'ul';
+    public $wrapTag = 'div';
     public $wrapClass = 'rss-wrap';
     public $items = [];
+    
 
     public function run() {
         $xml = @simplexml_load_file($this->channel);
@@ -26,9 +27,6 @@ class RssReader extends \yii\base\Widget {
         }
         $provider = new ArrayDataProvider([
             'allModels' => $this->items,
-//            'sort' => [
-//                'attributes' => ['id', 'username', 'email'],
-//            ],
             'pagination' => [
                 'pageSize' => $this->pageSize,
             ],
