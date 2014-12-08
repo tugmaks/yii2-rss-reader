@@ -3,6 +3,7 @@
 namespace tugmaks\RssFeed;
 
 use yii\data\ArrayDataProvider;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is just an example.
@@ -24,14 +25,11 @@ class RssReader extends \yii\base\Widget {
         foreach ($xml->xpath('//item') as $item) {
             $this->items[] = $item;
         }
+        ArrayHelper::multisort($this->items, 'pubDate');
         $provider = new ArrayDataProvider([
             'allModels' => $this->items,
             'pagination' => [
                 'pageSize' => $this->pageSize,
-            ],
-            'sort' => [
-                'attributes' => ['pubDate'],
-                'defaultOrder'=>['pubDate'=>SORT_ASC]
             ],
         ]);
 
