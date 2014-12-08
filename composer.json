@@ -1,0 +1,21 @@
+{
+    "name": "tugmaks/yii2-rss-reader",
+    "description": "Rss reader widget for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," rss"," rss reader"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Maxim Tugaev",
+            "email": "tugmaks@yandex.ru"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "tugmaks\\RssReader\\": ""
+        }
+    }
+}
