@@ -25,7 +25,7 @@ class RssReader extends \yii\base\Widget {
             $this->items[] = $item;
         }
         $provider = new ArrayDataProvider([
-            'allModels' => $this->itemss,
+            'allModels' => $this->items,
 //            'sort' => [
 //                'attributes' => ['id', 'username', 'email'],
 //            ],
