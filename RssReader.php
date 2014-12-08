@@ -20,7 +20,7 @@ class RssReader extends \yii\base\Widget {
         if ($xml === false) {
             die('Error parse RSS: ' . $rss);
         }
-
+        var_dump($xml->channel->item);
         $provider = new ArrayDataProvider([
             'allModels' => $xml->channel->item,
 //            'sort' => [
