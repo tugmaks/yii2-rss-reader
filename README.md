@@ -28,4 +28,6 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \tugmaks\RssReader\AutoloadExample::widget(); ?>```
+<?= \tugmaks\RssFeed\RssReader::widget([
+'channel'=>'http://example.com/feed.xml'
+]); ?>```
