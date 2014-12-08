@@ -19,7 +19,7 @@ class RssReader extends \yii\base\Widget {
     public function run() {
         $xml = @simplexml_load_file($this->channel);
         if ($xml === false) {
-            die('Error parse RSS: ' . $rss);
+            die('Error parse Rss: ' . $rss);
         }
         foreach ($xml->xpath('//item') as $item) {
             $this->items[] = $item;
