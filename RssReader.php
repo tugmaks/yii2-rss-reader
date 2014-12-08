@@ -25,7 +25,9 @@ class RssReader extends \yii\base\Widget {
         foreach ($xml->xpath('//item') as $item) {
             $items[] = $item;
         }
-        ArrayHelper::multisort($items, 'pubDate',SORT_DESC);
+        ArrayHelper::multisort($items, function($item) {
+            return $item->pubDate;
+        }, SORT_DESC);
         $provider = new ArrayDataProvider([
             'allModels' => $items,
             'pagination' => [
