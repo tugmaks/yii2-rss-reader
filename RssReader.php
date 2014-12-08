@@ -14,15 +14,18 @@ class RssReader extends \yii\base\Widget {
     public $itemView = 'item';
     public $wrapTag = 'ul';
     public $wrapClass = 'rss-wrap';
+    public $items = [];
 
     public function run() {
         $xml = @simplexml_load_file($this->channel);
         if ($xml === false) {
             die('Error parse RSS: ' . $rss);
         }
-        var_dump($xml->channel->item);
+        foreach ($xml->channel->item as $item) {
+            $this->items[] = $item;
+        }
         $provider = new ArrayDataProvider([
-            'allModels' => $xml->channel->item,
+            'allModels' => $this->itemss,
 //            'sort' => [
 //                'attributes' => ['id', 'username', 'email'],
 //            ],
