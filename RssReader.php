@@ -29,6 +29,10 @@ class RssReader extends \yii\base\Widget {
             'pagination' => [
                 'pageSize' => $this->pageSize,
             ],
+            'sort' => [
+                'attributes' => ['pubDate'],
+                'defaultOrder'=>['pubDate'=>SORT_ASC]
+            ],
         ]);
 
 
