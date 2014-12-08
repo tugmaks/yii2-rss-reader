@@ -15,19 +15,19 @@ class RssReader extends \yii\base\Widget {
     public $itemView = 'item';
     public $wrapTag = 'div';
     public $wrapClass = 'rss-wrap';
-    public $items = [];
 
     public function run() {
         $xml = @simplexml_load_file($this->channel);
         if ($xml === false) {
             die('Error parse Rss: ' . $rss);
         }
+        $items = [];
         foreach ($xml->xpath('//item') as $item) {
-            $this->items[] = $item;
+            $items[] = $item;
         }
-        ArrayHelper::multisort($this->items, 'pubDate');
+        ArrayHelper::multisort($items, 'pubDate');
         $provider = new ArrayDataProvider([
-            'allModels' => $this->items,
+            'allModels' => $items,
             'pagination' => [
                 'pageSize' => $this->pageSize,
             ],
