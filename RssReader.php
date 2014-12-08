@@ -1,7 +1,7 @@
 <?php
 
 namespace tugmaks\RssFeed;
-
+use yii\data\ArrayDataProvider;
 /**
  * This is just an example.
  */
