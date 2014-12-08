@@ -15,7 +15,6 @@ class RssReader extends \yii\base\Widget {
     public $wrapTag = 'div';
     public $wrapClass = 'rss-wrap';
     public $items = [];
-    
 
     public function run() {
         $xml = @simplexml_load_file($this->channel);
